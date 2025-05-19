@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 const mongoose = require('./config/database');
 import booksRouter from './routes/books';
+import usersRouter from './routes/users';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/books', booksRouter);
+app.use('/users', usersRouter);
 
 app.get('/', (req, res) => {
   res.send('BookApp Backend is running!');
